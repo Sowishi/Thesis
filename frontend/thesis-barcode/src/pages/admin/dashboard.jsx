@@ -1,11 +1,11 @@
 import AdminLayout from "../../layout/adminLayout";
 
-const Scan = () => {
+const Dashboard = () => {
   return (
     <AdminLayout>
-      <h1 className="text-9xl">Scan</h1>
+      <h1 className="text-9xl">Dashboard</h1>
     </AdminLayout>
   );
 };
 
-export default Scan;
+export default Dashboard;

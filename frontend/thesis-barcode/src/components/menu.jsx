@@ -9,6 +9,7 @@ import {
   HiInformationCircle,
   HiLogout,
 } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Menu = ({ openSidebar, handleClose }) => {
   return (
@@ -23,15 +24,12 @@ const Menu = ({ openSidebar, handleClose }) => {
             <div>
               <Sidebar.Items>
                 <Sidebar.ItemGroup>
-                  <Sidebar.Item href="/" icon={HiChartPie}>
-                    Dashboard
-                  </Sidebar.Item>
-                  <Sidebar.Item
-                    href="/authentication/sign-up"
-                    icon={HiPencilAlt}
-                  >
-                    Scan
-                  </Sidebar.Item>
+                  <Link to={"/dashboard"}>
+                    <Sidebar.Item icon={HiChartPie}>Dashboard</Sidebar.Item>
+                  </Link>
+                  <Link to={"/scan"}>
+                    <Sidebar.Item icon={HiPencilAlt}>Scan</Sidebar.Item>
+                  </Link>
                   <Sidebar.Item
                     href="/authentication/sign-in"
                     icon={HiOutlineTag}

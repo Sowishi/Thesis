@@ -1,12 +1,18 @@
 import { Button } from "flowbite-react";
 import Login from "./pages/auth/login";
 import Forgot from "./pages/auth/forgot";
-import { Scan } from "./pages/admin/scan";
+import Scan from "./pages/admin/scan";
+import AdminLayout from "./layout/adminLayout";
+import Dashboard from "./pages/admin/dashboard";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <Scan />
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/scan" element={<Scan />} />
+      </Routes>
     </>
   );
 };
