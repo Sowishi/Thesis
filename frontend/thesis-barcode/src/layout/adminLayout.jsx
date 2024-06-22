@@ -15,13 +15,13 @@ function AdminLayout({ children }) {
 
   return (
     <>
-      <div className="w-full h-screen bg-slate-950">
+      <div className="w-full min-h-screen bg-slate-950">
         <Menu
           openSidebar={openSidebar}
           handleClose={() => setOpenSidebar(false)}
         />
         <Header handleOpen={() => setOpenSidebar(true)} />
-        <div className="container bg-red-500 mx-auto">{children}</div>
+        <div className="container mx-auto">{children}</div>
       </div>
     </>
   );
