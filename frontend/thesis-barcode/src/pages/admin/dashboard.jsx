@@ -4,10 +4,9 @@ import AdminLayout from "../../layout/adminLayout";
 import { HiAdjustments } from "react-icons/hi";
 import ThesisDrawer from "../../components/thesisDrawer";
 import { useState } from "react";
+import { DateRangePicker } from "rsuite";
 
 const Dashboard = () => {
-  const [openFilter, setOpenFilter] = useState(false);
-
   const lineData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
@@ -41,30 +40,26 @@ const Dashboard = () => {
 
   return (
     <AdminLayout>
-      <ThesisDrawer
-        isOpen={openFilter}
-        handleClose={() => setOpenFilter(false)}
-      />
       <div className="container min-h-screen mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="wrapper md:col-span-2 flex justify-between items-center">
+        <div className="wrapper md:col-span-2 flex flex-col md:flex-row justify-between items-center">
+          <div className="wrapper">
+            <h1 className="text-white text-3xl">Filter Date</h1>
+            <DateRangePicker
+              onChange={(event) => console.log(event)}
+              className="z-100"
+            />
+          </div>
           <h1 className="text-6xl text-white mt-3 font-bold">Dashboard</h1>
-          <Button
-            gradientDuoTone="greenToBlue"
-            onClick={() => setOpenFilter(true)}
-          >
-            Filter Date
-            <HiAdjustments className="ml-2 h-5 w-5" />
-          </Button>
         </div>
         <div
-          style={{ height: 430 }}
-          className="wrapper flex justify-center items-center border border-red-500"
+          style={{ height: 400 }}
+          className="wrapper flex justify-center items-center"
         >
           <ThesisChart type={"line"} data={lineData} />
         </div>
         <div
-          style={{ height: 430 }}
-          className="wrapper flex justify-center items-center border border-red-500"
+          style={{ height: 400 }}
+          className="wrapper flex justify-center items-center"
         >
           <ThesisChart type={"doughnut"} data={doughnutData} />
         </div>
