@@ -1,10 +1,7 @@
-import { Button } from "flowbite-react";
 import ThesisChart from "../../components/thesisChart";
 import AdminLayout from "../../layout/adminLayout";
-import { HiAdjustments } from "react-icons/hi";
-import ThesisDrawer from "../../components/thesisDrawer";
-import { useState } from "react";
 import { DateRangePicker } from "rsuite";
+import { motion } from "framer-motion";
 
 const Dashboard = () => {
   const lineData = {
@@ -42,14 +39,20 @@ const Dashboard = () => {
     <AdminLayout>
       <div className="container min-h-screen mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="wrapper md:col-span-2 flex flex-col md:flex-row justify-between items-center">
-          <div className="wrapper">
+          <motion.div
+            initial={{ x: -500 }}
+            animate={{ x: 0 }}
+            className="wrapper"
+          >
             <h1 className="text-white text-3xl">Filter Date</h1>
             <DateRangePicker
               onChange={(event) => console.log(event)}
               className="z-100"
             />
-          </div>
-          <h1 className="text-6xl text-white mt-3 font-bold">Dashboard</h1>
+          </motion.div>
+          <motion.div initial={{ x: 500 }} animate={{ x: 0 }}>
+            <h1 className="text-6xl text-white mt-3 font-bold">Dashboard</h1>
+          </motion.div>
         </div>
         <div
           style={{ height: 400 }}

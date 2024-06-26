@@ -10,6 +10,7 @@ import {
   HiLogout,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Menu = ({ openSidebar, handleClose }) => {
   return (
@@ -24,28 +25,49 @@ const Menu = ({ openSidebar, handleClose }) => {
             <div>
               <Sidebar.Items>
                 <Sidebar.ItemGroup>
-                  <Link to={"/dashboard"}>
-                    <Sidebar.Item icon={HiChartPie}>Dashboard</Sidebar.Item>
-                  </Link>
-                  <Link to={"/scan"}>
-                    <Sidebar.Item icon={HiPencilAlt}>Scan</Sidebar.Item>
-                  </Link>
-                  <Sidebar.Item
-                    href="/authentication/sign-in"
-                    icon={HiOutlineTag}
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    Burrowed
-                  </Sidebar.Item>
-
-                  <Sidebar.Item href="/users/list" icon={HiUsers}>
-                    Student list
-                  </Sidebar.Item>
-                  <Sidebar.Item
-                    href="/authentication/sign-in"
-                    icon={HiClipboard}
+                    <Link to={"/dashboard"}>
+                      <Sidebar.Item icon={HiChartPie}>Dashboard</Sidebar.Item>
+                    </Link>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    Reports
-                  </Sidebar.Item>
+                    <Link to={"/scan"}>
+                      <Sidebar.Item icon={HiPencilAlt}>Scan</Sidebar.Item>
+                    </Link>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Sidebar.Item href="/borrowed" icon={HiOutlineTag}>
+                      Borrowed
+                    </Sidebar.Item>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Sidebar.Item href="/users/list" icon={HiUsers}>
+                      Student list
+                    </Sidebar.Item>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Sidebar.Item
+                      href="/authentication/sign-in"
+                      icon={HiClipboard}
+                    >
+                      Reports
+                    </Sidebar.Item>
+                  </motion.div>
                 </Sidebar.ItemGroup>
                 <Sidebar.ItemGroup>
                   <Sidebar.Item href="https://github.com/themesberg/flowbite-react/">
